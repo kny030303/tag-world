@@ -2,26 +2,22 @@
 <!doctype html>
 <html>
   <body>
-    <video id="videoInput"></video>
+    <div>
+      <text>상대방 유저</text>
+      <input id="user1-input" type="text"></input>
+    </div>
     <script>
-      navigator.getUserMedia =
-        navigator.getUserMedia ||
-        navigator.webkitGetUserMedia ||
-        navigator.mozGetUserMedia;
+      document.addEventListener('keypress', function () {
+        const input = document.getElementById('user1-input');
 
-      var constraints = { audio: false, video: true };
+        input.addEventListener('input', function () {
+          const value = input.value;
+          var pattern = /[a-z0-9]|[ \[\]{}()<>?|`~!@#$%^&*-_+=,.;:\"'\\]/g;
+          
+          this.value = this.value.replace(pattern, '');
+        });
+      });
 
-      var video = document.getElementById('videoInput');
-
-      function successCallback(stream) {
-        video.srcObject = stream;
-        video.play();
-      }
-
-      function errorCallback(error) {
-        console.log(error);
-      }
-      navigator.getUserMedia(constraints, successCallback, errorCallback);
     </script>
   </body>
 </html>
