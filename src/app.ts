@@ -1,5 +1,5 @@
 import express, { Request, Response } from 'express';
-
+import imgRouter from './router/img';
 const app = express();
 
 app.listen(3000, function () {
@@ -7,5 +7,7 @@ app.listen(3000, function () {
 });
 
 app.get('/', function (req: Request, res: Response) {
-  res.sendfile(`${__dirname}/view/index.html`);
+  res.sendFile(`${__dirname}/view/index.html`);
 });
+
+app.use('/public/img', imgRouter);
