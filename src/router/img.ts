@@ -14,4 +14,13 @@ router.get('/back.png', function (req, res) {
   });
 });
 
+router.get('/icon.png', function (req, res) {
+  readFile(path.join(__dirname, '../public/img/icon.png'), (err, data) => {
+    if (err) {
+      res.send(err);
+    }
+    res.send(data);
+  });
+});
+
 export default router;

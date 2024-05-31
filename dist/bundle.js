@@ -1,0 +1,1 @@
+(()=>{"use strict";document.addEventListener("DOMContentLoaded",(()=>{const e=document.getElementById("app");console.log("hello from app.ts"),(()=>{const n=document.createElement("div");n.innerHTML="<h1>Hello, this is a dynamically rendered component!</h1>",e&&e.appendChild(n)})()}))})();
